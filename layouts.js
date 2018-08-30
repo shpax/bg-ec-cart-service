@@ -2,10 +2,13 @@ const Router = require('koa-router');
 const controller = require('./controller');
 
 const bodyParser = require('koa-bodyparser');
+const cors = require('@koa/cors');
 
 const router = new Router();
 
 router.use(bodyParser());
+
+router.use(cors({ origin: '*' }));
 
 router.get('/api/orders', controller.listOrders);
 
